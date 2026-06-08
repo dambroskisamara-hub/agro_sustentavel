@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Agro Forte - Futuro Sustentável</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Biblioteca p5.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+</head>
+
+<body>
+
+  <!-- BOTÃO TEMA -->
+  <button id="temaBtn">🌙 Modo Escuro/Claro</button>
+
+  <!-- CABEÇALHO -->
+ <header>
+  <h1>🌱 Agro Forte, Futuro Sustentável 🌎</h1>
+
+  <p>
+    Tecnologia, natureza e produção trabalhando juntas para um planeta melhor.
+  </p>
+
+  <!-- Botão Curiosidade -->
+  <button id="curiosidadeBtn">🧠 Curiosidade do Agro</button>
+</header>
+    
+    <button onclick="mudarClima('sol')">☀️ Sol</button>
+<button onclick="mudarClima('chuva')">🌧️ Chuva</button>
+<button onclick="mudarClima('nublado')">☁️ Nublado</button>
+<button onclick="mudarClima('noite')">🌙 Noite</button>
+
+  <!-- HERO -->
+  <section class="hero">
+
+    <div class="textoHero">
+      <h2>O Agro conecta o Campo e a Cidade 🚜</h2>
+
+      <p>
+        O agronegócio sustentável produz alimentos,
+        preserva o meio ambiente e utiliza tecnologia
+        para melhorar a vida das pessoas.
+      </p>
+
+      <button id="explorarBtn">Explorar Agro</button>
+    </div>
+
+    <div id="canvasContainer"></div>
+
+  </section>
+
+  <!-- CARDS -->
+  <section class="cards">
+
+    <div class="card">
+      <h3>🌾 Produção Sustentável</h3>
+
+      <p>
+        Técnicas modernas ajudam a produzir mais
+        sem destruir a natureza.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>💧 Economia de Água</h3>
+
+      <p>
+        Sistemas inteligentes evitam desperdícios
+        e protegem os rios.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>🤖 Tecnologia no Campo</h3>
+
+      <p>
+        Drones, sensores e IA ajudam os agricultores.
+      </p>
+    </div>
+
+  </section>
+
+  <!-- IA DO AGRO -->
+  <section class="iaSection">
+
+    <h2>🐮 AgroBot - IA do Campo</h2>
+
+    <p>
+      Faça perguntas sobre agro, sustentabilidade e tecnologia rural.
+    </p>
+
+    <div class="chatBox" id="chatBox">
+
+      <div class="botMensagem">
+        Olá! Eu sou o AgroBot 🐮
+        Pergunte algo sobre o agro!
+      </div>
+
+    </div>
+
+    <div class="chatInputArea">
+      <input
+        type="text"
+        id="perguntaInput"
+        placeholder="Digite sua pergunta..."
+      >
+
+      <button id="enviarBtn">Enviar</button>
+    </div>
+
+  </section>
+
+  <!-- GALERIA -->
+  <section class="galeria">
+
+    <h2>📸 Agro em Ação</h2>
+
+    <div class="imagens">
+
+      <div class="imgCard">🚜</div>
+      <div class="imgCard">🌽</div>
+      <div class="imgCard">🐄</div>
+      <div class="imgCard">🌱</div>
+      <div class="imgCard">☀️</div>
+      <div class="imgCard">💧</div>
+
+    </div>
+
+  </section>
+    
+    <section class="mapaAgro">
+  <h2>🌾 Mapa do Agro Interativo</h2>
+
+  <p>Clique em uma cultura para ver onde é produzida:</p>
+
+  <div class="mapaBotoes">
+    <button onclick="mostrarProducao('milho')">🌽 Milho</button>
+    <button onclick="mostrarProducao('soja')">🌱 Soja</button>
+    <button onclick="mostrarProducao('cafe')">☕ Café</button>
+    <button onclick="mostrarProducao('algodao')">🌿 Algodão</button>
+  </div>
+
+  <div id="infoProducao" class="infoProducao">
+    Clique em uma cultura acima para ver a produção!
+  </div>
+</section>
+
+  <!-- VÍDEO -->
+  <section class="videoSection">
+    
+  </section>
+    
+    <!-- CONEXÃO CAMPO-CIDADE -->
+<section class="campoCidade">
+
+  <h2>🌍 Do Campo ao Supermercado</h2>
+
+  <p>Veja como o alimento chega até você:</p>
+
+  <div class="fluxo">
+
+    <div class="etapa">🌱 Produção</div>
+    <div class="seta">➡️</div>
+
+    <div class="etapa">🚚 Transporte</div>
+    <div class="seta">➡️</div>
+
+    <div class="etapa">🏪 Mercado</div>
+    <div class="seta">➡️</div>
+
+    <div class="etapa">🍽️ Mesa</div>
+
+  </div>
+
+  <button onclick="explicarFluxo()">
+    🔎 Explicar o processo
+  </button>
+
+</section>
+    
+    <!-- SIMULADOR DE SAFRA -->
+<section class="simulador">
+
+  <h2>📊 Simulador de Safra</h2>
+
+  <p>Escolha uma cultura e veja o resultado da produção:</p>
+
+  <select id="cultivo">
+    <option value="milho">🌽 Milho</option>
+    <option value="soja">🌱 Soja</option>
+    <option value="cafe">☕ Café</option>
+  </select>
+
+  <button onclick="simularSafra()">Simular Produção</button>
+
+  <div id="resultadoSafra"></div>
+
+</section>
+
+  <!-- RODAPÉ -->
+  <footer>
+
+    <p>
+      Projeto Agrinho 2026 🌾
+    </p>
+
+    <p>
+      Desenvolvido em HTML, CSS, JavaScript e p5.js
+    </p>
+
+  </footer>
+
+  <!-- SCRIPT -->
+  <script src="sketch.js"></script>
+
+</body>
+</html>  
+
+
